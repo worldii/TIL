@@ -29,5 +29,12 @@ public class ProductTest {
         assertThat(product.getId()).isEqualTo(1);
     }
 
+    @Test
+    void 역직렬화 () throws JsonProcessingException {
+        String json = "{\"id\":\"1\", \"name\":\"jongha\" }";
+
+        Product3 product = new ObjectMapper().readValue(json, Product3.class);
+        assertThat(product.getId()).isEqualTo(1);
+    }
 
 }
